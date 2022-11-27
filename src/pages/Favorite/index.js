@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 
-function Favorite() {
+function FavoritePage() {
   return (
     <>
       <Navbar />
@@ -9,4 +9,4 @@ function Favorite() {
   );
 }
 
-export default Favorite;
+export default FavoritePage;

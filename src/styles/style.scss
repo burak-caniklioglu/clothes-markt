@@ -10,6 +10,8 @@
 
 *{
     font-family: 'Nunito', sans-serif !important; 
+		user-select: none;
+		box-sizing: border-box;
 }
 button {
     cursor: pointer;
