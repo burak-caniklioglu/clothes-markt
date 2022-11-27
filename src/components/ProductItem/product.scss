@@ -3,10 +3,10 @@
 .card__item {
     @include display-flex(column, unset, space-between);
     padding: 1rem;
-    background-color: $white;
+    background-color: #85864f;
     border-radius: 0.8rem;
     width: 26rem;
-    height: 39rem;
+    height: 35rem;
     cursor: pointer;
     
     @include screenSize('small') {
@@ -39,7 +39,7 @@
         @include display-flex(column, unset, unset);
       }
       &-brand {
-        color: #4B9CE2;
+        color: #3E3E3E;
         font-size: 1.5rem;
         font-weight: 700;
       }
