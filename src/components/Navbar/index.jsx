@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Favorite from '../../constants/icons/favorite';
 import Cart from '../../constants/icons/cart';
 import World from '../../constants/icons/world';
-import Mode from '../../constants/icons/moon';
+import Theme from '../../constants/icons/moon';
 import useWindowSize from '../../hooks/useWindowSize';
 import Logo from '../../constants/icons/logo';
 
@@ -44,9 +44,9 @@ function Navbar() {
           </div>
           <div className="nav-btn world">
             <div>
-              <Mode />
+              <Theme />
             </div>
-            {width > 768 && <div>Mode</div>}
+            {width > 768 && <div>Theme</div>}
           </div>
         </div>
       </div>
