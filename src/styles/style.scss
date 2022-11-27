@@ -15,12 +15,7 @@ button {
     cursor: pointer;
   }
 
-.container{
-	width: 148rem;
-	@include screenSize("xxlarge") {
-		width: 120rem;
-	}
-}
+
 
   ::-webkit-scrollbar {
     width: 4px;
