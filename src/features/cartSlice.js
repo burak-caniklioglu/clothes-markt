@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
 
 const initialState = {
-  cartItems: localStorage.getItem('cartItems')
-    ? JSON.parse(localStorage.getItem('cartItems'))
+  cartItems: Cookies.get('cartItems')
+    ? JSON.parse(Cookies.get('cartItems'))
     : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
@@ -26,7 +27,7 @@ const cartSlice = createSlice({
         let tempProductItem = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProductItem);
       }
-      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+      Cookies.set('cartItems', JSON.stringify(state.cartItems));
     },
     decreaseCart(state, action) {
       const itemIndex = state.cartItems.findIndex(
@@ -43,7 +44,7 @@ const cartSlice = createSlice({
         state.cartItems = nextCartItems;
       }
 
-      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+      Cookies.set('cartItems', JSON.stringify(state.cartItems));
     },
     removeFromCart(state, action) {
       state.cartItems.map((cartItem) => {
@@ -54,7 +55,7 @@ const cartSlice = createSlice({
 
           state.cartItems = nextCartItems;
         }
-        localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+        Cookies.set('cartItems', JSON.stringify(state.cartItems));
         return state;
       });
     },
@@ -80,7 +81,7 @@ const cartSlice = createSlice({
     },
     clearCart(state) {
       state.cartItems = [];
-      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+      Cookies.set('cartItems', JSON.stringify(state.cartItems));
     },
   },
 });
