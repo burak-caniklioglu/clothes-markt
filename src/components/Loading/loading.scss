@@ -1,0 +1,14 @@
+@import "../../styles/style.scss";
+
+.loading-container {
+  @include display-flex(row, center, center);
+	// background-color: black;
+  width: 100%;
+	height: 100vh;
+  // inset: 0;
+	
+}
+
+
+
+

@@ -1,0 +1,51 @@
+@import "../../styles/style.scss";
+
+
+.nav {
+  z-index: 12;
+  width: 100%;
+  height: 8rem;
+  font-family: "Nunito", sans-serif;
+  position: fixed;
+  background-color: $navbar;
+  @include display-flex(row, center, center);
+  @include screenSize("medium") {
+    height: 6rem;
+  }
+  .nav-wrapper {
+    width: 148rem;
+    @include display-flex(row, center, space-between);
+    @include screenSize("xxlarge") {
+      width: 120rem;
+    }
+    .logo {
+      @include screenSize("xxlarge") {
+        margin-left: 1rem;
+      }
+      
+    }
+
+		.nav-btns{
+			@include display-flex(row, center, center);
+		}
+
+    .nav-btn {
+      height: 4rem;
+      color: white;
+      border: none;
+      margin-left: 2rem;
+      padding: 0 0.5rem;
+      font-size: 1rem;
+
+      @include display-flex(column, center, center);
+
+
+      @include screenSize("xxlarge"){
+        margin-right: 1rem;
+      }
+      @include screenSize("medium") {
+        padding:0 0.1rem;
+      }
+    }
+  }
+}
