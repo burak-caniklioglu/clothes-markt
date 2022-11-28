@@ -1,6 +1,9 @@
+import { nanoid } from 'nanoid';
+
 const data = {
   products: [
     {
+      id: nanoid(),
       name: 'Free Shirt',
       slug: 'free-shirt',
       category: 'Shirts',
@@ -9,10 +12,11 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 8,
-      countInStock: 20,
+      countInStock: 21,
       description: 'A popular shirt',
     },
     {
+      id: nanoid(),
       name: 'Fit Shirt',
       slug: 'fit-shirt',
       category: 'Shirts',
@@ -20,11 +24,12 @@ const data = {
       price: 80,
       brand: 'Adidas',
       rating: 3.2,
-      numReviews: 10,
+      numReviews: 5,
       countInStock: 20,
       description: 'A popular shirt',
     },
     {
+      id: nanoid(),
       name: 'Slim Shirt',
       slug: 'slim-shirt',
       category: 'Shirts',
@@ -33,10 +38,11 @@ const data = {
       brand: 'Raymond',
       rating: 4.5,
       numReviews: 3,
-      countInStock: 20,
+      countInStock: 28,
       description: 'A popular shirt',
     },
     {
+      id: nanoid(),
       name: 'Golf Pants',
       slug: 'golf-pants',
       category: 'Pants',
@@ -45,10 +51,11 @@ const data = {
       brand: 'Oliver',
       rating: 2.9,
       numReviews: 13,
-      countInStock: 20,
+      countInStock: 15,
       description: 'Smart looking pants',
     },
     {
+      id: nanoid(),
       name: 'Fit Pants',
       slug: 'fit-pants',
       category: 'Pants',
@@ -57,10 +64,11 @@ const data = {
       brand: 'Zara',
       rating: 3.5,
       numReviews: 7,
-      countInStock: 20,
+      countInStock: 40,
       description: 'A popular pants',
     },
     {
+      id: nanoid(),
       name: 'Classic Pants',
       slug: 'classic-pants',
       category: 'Pants',
@@ -69,7 +77,7 @@ const data = {
       brand: 'Casely',
       rating: 2.4,
       numReviews: 14,
-      countInStock: 20,
+      countInStock: 10,
       description: 'A popular pants',
     },
   ],
