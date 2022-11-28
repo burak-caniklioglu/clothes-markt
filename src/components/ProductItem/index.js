@@ -3,12 +3,19 @@ import propTypes from 'prop-types';
 import './product.scss';
 import FavoritePlus from '../../constants/icons/favoriteplus';
 import Cart from '../../constants/icons/cart';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../features/cartSlice';
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from '../../features/favoriteSlice';
 import { useNavigate } from 'react-router-dom';
+import Favorite from '../../constants/icons/favorite';
 
 function ProductItem({ product }) {
   const { brand, name, price, image } = product;
+  const favorites = useSelector((state) => state.favorites);
+  const { favoriteItems } = favorites;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -17,12 +24,30 @@ function ProductItem({ product }) {
     navigate('/cart');
   };
 
+  const handleAddToFavorites = (product) => {
+    dispatch(addToFavorites(product));
+  };
+
+  const handleRemoveFromfavorites = (product) => {
+    dispatch(removeFromFavorites(product));
+  };
+
   return (
     <div className="card__item" role="none">
       <img src={image} alt="item-img" />
       <div className="product-btns">
         <div className="favorite-btn">
-          <FavoritePlus />
+          {favoriteItems?.length >= 0 && (
+            favoriteItems?.find((item) => product?.slug === item?.slug) ? (
+              <div onClick={() => handleRemoveFromfavorites(product)}>
+                <Favorite />
+              </div>
+            ) : (
+              <div onClick={() => handleAddToFavorites(product)}>
+                <FavoritePlus />
+              </div>
+            )
+          ) }
         </div>
         <div className="cart-btn" onClick={() => handleAddToCart(product)}>
           <Cart />

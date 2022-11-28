@@ -1,0 +1,29 @@
+@import "../../styles/style.scss";
+
+
+.modal-section{
+	z-index: 15;
+	position: fixed;
+	inset: 0;
+	background-color: rgba($color: #000000, $alpha: 0.30);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+
+	.modal-container{
+		width: 600px;
+		background-color: black;
+		display: flex;
+		font-size: 1.6rem;
+		flex-direction: column;
+		align-items: center;
+		padding: 2rem;
+		border-radius: 0.8rem;
+
+		.modal-wrapper{
+			
+			
+		}
+	}
+}

@@ -9,7 +9,7 @@ function Products() {
   return (
     <article className="products-container">
       {products.map((product) => (
-        <Product key={product.slug} product={product} />
+        <Product key={product.id} product={product} />
       ))}
     </article>
   );

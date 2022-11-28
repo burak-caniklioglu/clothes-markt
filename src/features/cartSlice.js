@@ -59,34 +59,9 @@ const cartSlice = createSlice({
         return state;
       });
     },
-    getTotals(state) {
-      let { total, quantity } = state.cartItems.reduce(
-        (cartTotal, cartItem) => {
-          const { price, cartQuantity } = cartItem;
-          const itemTotal = price * cartQuantity;
-
-          cartTotal.total += itemTotal;
-          cartTotal.quantity += cartQuantity;
-
-          return cartTotal;
-        },
-        {
-          total: 0,
-          quantity: 0,
-        },
-      );
-      total = parseFloat(total.toFixed(2));
-      state.cartTotalQuantity = quantity;
-      state.cartTotalAmount = total;
-    },
-    clearCart(state) {
-      state.cartItems = [];
-      Cookies.set('cartItems', JSON.stringify(state.cartItems));
-    },
   },
 });
 
-export const { addToCart, decreaseCart, removeFromCart, getTotals, clearCart } =
-  cartSlice.actions;
+export const { addToCart, decreaseCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

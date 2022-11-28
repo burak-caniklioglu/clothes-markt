@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './cartItem.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import useWindowSize from '../../hooks/useWindowSize';
@@ -10,12 +10,20 @@ import {
 import Plus from '../../constants/icons/plus';
 import Minus from '../../constants/icons/minus';
 import Garbage from '../../constants/icons/garbage';
-import Favorite from '../../constants/icons/favoriteplus';
+import FavoritePlus from '../../constants/icons/favoriteplus';
+import Modal from '../Modal';
+import Favorite from '../../constants/icons/favorite';
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from '../../features/favoriteSlice';
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  console.log(cartItems);
+  const favorites = useSelector((state) => state.favorites);
+  const { favoriteItems } = favorites;
+  const [showModal, setShowModal] = useState();
   const dispatch = useDispatch();
   const [width] = useWindowSize();
 
@@ -28,12 +36,27 @@ function Cart() {
 
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
+    setShowModal();
+  };
+
+  const handleRemoveFromCartAddFavorites = (product) => {
+    dispatch(addToFavorites(product));
+    dispatch(removeFromCart(product));
+    setShowModal();
+  };
+
+  const handleAddToFavorites = (product) => {
+    dispatch(addToFavorites(product));
+  };
+
+  const handleRemoveFromfavorites = (product) => {
+    dispatch(removeFromFavorites(product));
   };
 
   return (
     <article>
       {cartItems.length === 0 ? (
-        <div style={{ fontSize: '2rem', color: 'white' }}>Sepet Boş.</div>
+        <div style={{ fontSize: '2rem', color: 'white' }}>Cart is empty.</div>
       ) : (
         <div className="cart-container">
           {width > 768 ? (
@@ -41,14 +64,12 @@ function Cart() {
               <table className="cart-table">
                 <thead className="cart-table-head">
                   <tr className="cart-table-head-row">
-                    <th className="cart-table-head-product">Ürün</th>
-                    <th className="cart-table-head-quantity">Adet</th>
-                    <th className="cart-table-head-favorite">
-                      Favorilere Ekle
-                    </th>
-                    <th className="cart-table-head-price">Adet Fiyatı</th>
-                    <th className="cart-table-head-price">Ara Toplam</th>
-                    <th className="cart-table-head-remove">Sepetten Kaldır</th>
+                    <th className="cart-table-head-product">Product</th>
+                    <th className="cart-table-head-quantity">Quantity</th>
+                    <th className="cart-table-head-favorite">Add Favorites</th>
+                    <th className="cart-table-head-price">Quantity Price</th>
+                    <th className="cart-table-head-price">Sub Total</th>
+                    <th className="cart-table-head-remove">Remove From Cart</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -74,12 +95,12 @@ function Cart() {
                           <input
                             type="text"
                             className="input"
-                            value={item.cartQuantity}
+                            value={item?.cartQuantity}
                             disabled
                           />
                           <div className="minus">
-                            {item.cartQuantity === 1 ? (
-                              <div onClick={() => handleRemoveFromCart(item)}>
+                            {item?.cartQuantity === 1 ? (
+                              <div onClick={() => setShowModal(item)}>
                                 <Garbage />{' '}
                               </div>
                             ) : (
@@ -91,21 +112,56 @@ function Cart() {
                         </div>
                       </td>
                       <td className="cartItem-item-favorite">
-                        <Favorite />
+                        {favoriteItems?.length >= 0 &&
+                          (favoriteItems?.find(
+                            (product) => item?.slug === product?.slug,
+                          ) ? (
+                            <div
+                              onClick={() => handleRemoveFromfavorites(item)}
+                            >
+                              <Favorite />
+                            </div>
+                          ) : (
+                            <div onClick={() => handleAddToFavorites(item)}>
+                              <FavoritePlus />
+                            </div>
+                          ))}
                       </td>
-                      <td className="cartItem-item-price">{item.price} TL</td>
+                      <td className="cartItem-item-price">{item?.price} TL</td>
                       <td className="cartItem-item-price">
-                        {item.price * item.cartQuantity} TL
+                        {item?.price * item?.cartQuantity} TL
                       </td>
-                      <td
-                        className="cartItem-item-remove"
-                        onClick={() => handleRemoveFromCart(item)}
-                      >
-                        {' '}
-                        <Garbage size="2.4rem" />{' '}
+                      <td className="cartItem-item-remove">
+                        <div onClick={() => setShowModal(item)}>
+                          <Garbage size="2.4rem" />
+                        </div>
                       </td>
                     </tr>
                   ))}
+                  <Modal isVisible={showModal} onClose={setShowModal}>
+                    <div className="modal-remove">
+                      <div className="modal-remove-question">
+                        Will the product be removed from the cart?
+                      </div>
+                      <div className="modal-remove-btns">
+                        <button
+                          className="modal-remove-btn"
+                          type="text"
+                          onClick={() => handleRemoveFromCart(showModal)}
+                        >
+                          Yes, I am sure
+                        </button>
+                        <button
+                          className="modal-remove-btn"
+                          onClick={() =>
+                            handleRemoveFromCartAddFavorites(showModal)
+                          }
+                        >
+                          Remove and Add to Favorites
+                        </button>
+                      </div>
+                    </div>
+                  </Modal>
                 </tbody>
               </table>
             </div>
@@ -117,7 +173,7 @@ function Cart() {
             <ul className="cart-checkout-list">
               <li>
                 <div>
-                  Toplam Ürün (
+                  Total Products (
                   {cartItems.reduce((a, c) => a + c.cartQuantity, 0)}){'  '}:{' '}
                   {'  '}
                   {cartItems.reduce(
@@ -128,7 +184,7 @@ function Cart() {
                 </div>
               </li>
               <li>
-                <button className='cart-checkout-button'>Devam Et</button>
+                <button className="cart-checkout-button">Next</button>
               </li>
             </ul>
           </div>
