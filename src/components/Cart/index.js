@@ -17,6 +17,7 @@ import {
   addToFavorites,
   removeFromFavorites,
 } from '../../features/favoriteSlice';
+import { useTranslation } from 'react-i18next';
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -26,6 +27,7 @@ function Cart() {
   const [showModal, setShowModal] = useState();
   const dispatch = useDispatch();
   const [width] = useWindowSize();
+  const { t } = useTranslation();
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -65,19 +67,20 @@ function Cart() {
                 <table className="cart-table">
                   <thead className="cart-table-head">
                     <tr className="cart-table-head-row">
-                      <th className="cart-table-head-product">Product</th>
-                      <th className="cart-table-head-quantity">Quantity</th>
+                      <th className="cart-table-head-product">{t('cart.product')}</th>
+                      <th className="cart-table-head-quantity">{t('cart.quantity')}</th>
                       <th className="cart-table-head-favorite">
-                        Add Favorites
+                        {t('cart.favorite')}
                       </th>
-                      <th className="cart-table-head-price">Quantity Price</th>
-                      <th className="cart-table-head-price">Sub Total</th>
+                      <th className="cart-table-head-price">{t('cart.price')}</th>
+                      <th className="cart-table-head-price">{t('cart.subtotal')}</th>
                       <th className="cart-table-head-remove">
-                        Remove From Cart
+                        {t('cart.remove')}
                       </th>
                     </tr>
                   </thead>
                   <tbody>
+										
                     {cartItems?.map((item) => (
                       <tr key={item?.slug} className="cartItem-item">
                         <td className="cartItem-item-name">
@@ -117,6 +120,7 @@ function Cart() {
                           </div>
                         </td>
                         <td className="cartItem-item-favorite">
+                          {/* Hangi ürünün favorilerde oldugunu kontrol ediyor.  */}
                           {favoriteItems?.length >= 0 &&
                             (favoriteItems?.find(
                               (product) => item?.slug === product?.slug,
@@ -181,7 +185,7 @@ function Cart() {
                 <ul className="cart-checkout-list">
                   <li>
                     <div>
-                      Total Products (
+                      {t('cart.totalProducts')} (
                       {cartItems.reduce((a, c) => a + c.cartQuantity, 0)}){'  '}
                       : {'  '}
                       {cartItems.reduce(
@@ -192,7 +196,7 @@ function Cart() {
                     </div>
                   </li>
                   <li>
-                    <button className="cart-checkout-button">Next</button>
+                    <button className="cart-checkout-button">{t('cart.nextButton')}</button>
                   </li>
                 </ul>
               </div>
@@ -240,13 +244,13 @@ function Cart() {
 
                         <li className="cart-medium-card-info-area-list-second">
                           <div>
-                            <span className="card-price">Quantity Price: </span>
+                            <span className="card-price">{t('cart.price')}: </span>
                             {item?.price} TL
                           </div>
                         </li>
                         <li className="cart-medium-card-info-area-list-second">
                           <div>
-                            <span className="card-price">Subtotal: </span>
+                            <span className="card-price">{t('cart.subtotal')}: </span>
                             {item?.price * item?.cartQuantity} TL
                           </div>
                         </li>
@@ -261,26 +265,24 @@ function Cart() {
                   </div>
                   <div className="card-favorite">
                     {favoriteItems?.length >= 0 &&
-                            (favoriteItems?.find(
-                              (product) => item?.slug === product?.slug,
-                            ) ? (
-                              <div
-                                onClick={() => handleRemoveFromfavorites(item)}
-                              >
-                                <Favorite />
-                              </div>
-                            ) : (
-                              <div onClick={() => handleAddToFavorites(item)}>
-                                <FavoritePlus />
-                              </div>
-                            ))}
+                      (favoriteItems?.find(
+                        (product) => item?.slug === product?.slug,
+                      ) ? (
+                        <div onClick={() => handleRemoveFromfavorites(item)}>
+                          <Favorite />
+                        </div>
+                      ) : (
+                        <div onClick={() => handleAddToFavorites(item)}>
+                          <FavoritePlus />
+                        </div>
+                      ))}
                   </div>
                 </div>
               ))}
               <Modal isVisible={showModal} onClose={() => setShowModal()}>
                 <div className="modal-remove">
                   <div className="modal-remove-question">
-                        Will the product be removed from the cart?
+                    {t('cart.question')}
                   </div>
                   <div className="modal-remove-btns">
                     <button
@@ -288,19 +290,19 @@ function Cart() {
                       type="text"
                       onClick={() => handleRemoveFromCart(showModal)}
                     >
-                          Yes, I am sure
+                      {t('cart.yesButton')}
                     </button>
                     {favoriteItems?.length >= 0 &&
-                          !favoriteItems?.find(
-                            (product) => product?.slug === showModal?.slug,
-                          ) && (
+                      !favoriteItems?.find(
+                        (product) => product?.slug === showModal?.slug,
+                      ) && (
                       <button
                         className="modal-remove-btn option"
                         onClick={() =>
                           handleRemoveFromCartAddFavorites(showModal)
                         }
                       >
-                              Remove and Add to Favorites
+                        {t('cart.addFavButton')}
                       </button>
                     )}
                   </div>
@@ -312,7 +314,7 @@ function Cart() {
                   <ul className="cart-checkout-card-wrapper-list">
                     <li>
                       <div>
-                        Total Products (
+                        {t('cart.totalProducts')} (
                         {cartItems.reduce((a, c) => a + c.cartQuantity, 0)})
                         {'  '}: {'  '}
                         {cartItems.reduce(
@@ -324,7 +326,7 @@ function Cart() {
                     </li>
                     <li>
                       <button className="cart-checkout-card-wrapper-button">
-                        Next
+                        {t('cart.nextButton')}
                       </button>
                     </li>
                   </ul>

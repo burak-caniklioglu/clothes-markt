@@ -1,0 +1,17 @@
+{
+	"navbar.favorite": "Favoriler",
+	"navbar.cart": "Sepetiniz",
+	"navbar.language": "Dil",
+	"navbar.theme": "Mod",
+	"cart.product": "Ürün",
+	"cart.quantity": "Adet",
+	"cart.favorite": "Favorilere Ekle",
+	"cart.price": "Adet Fiyatı",
+	"cart.subtotal": "Ürün Toplam",
+	"cart.remove": "Sepetten Kaldır",
+	"cart.totalProducts": "Toplam Ürün",
+	"cart.nextButton": "Devam Et",
+	"cart.question": "Ürünü sepetten kaldırmak istediğinize emin misiniz?",
+	"cart.yesButton": "Evet, eminim",
+	"cart.addFavButton": "Kaldır ve Favorilere Ekle"
+}
