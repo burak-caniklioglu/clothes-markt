@@ -143,26 +143,7 @@
 		}
 	}
 
-	.modal-remove-question {
-		padding-bottom: 2rem;
-	}
 
-	.modal-remove-btns {
-		@include display-flex(row, center, center);
-
-		.modal-remove-btn {
-			margin-top: 2rem;
-			border: none;
-			padding: 1rem;
-			border-radius: 0.8rem;
-			background-color: #85864f;
-			color: gold;
-		}
-
-		.option {
-			margin-left: 2rem;
-		}
-	}
 
 	.cart-checkout {
 		background-color: $navbar;

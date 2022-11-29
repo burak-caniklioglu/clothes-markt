@@ -2,52 +2,85 @@
 
 
 .nav {
-  z-index: 12;
-  width: 100%;
-  height: 8rem;
-  font-family: "Nunito", sans-serif;
-  position: fixed;
-  background-color: $navbar;
-  @include display-flex(row, center, center);
-  @include screenSize("medium") {
-    height: 6rem;
-  }
-  .nav-wrapper {
-    width: 148rem;
-    @include display-flex(row, center, space-between);
-    @include screenSize("xxlarge") {
-      width: 120rem;
-    }
-    .nav-logo {
-      @include screenSize("xxlarge") {
-        margin-left: 1rem;
+	z-index: 12;
+	width: 100%;
+	height: 8rem;
+	font-family: "Nunito", sans-serif;
+	position: fixed;
+	background-color: $navbar;
+	@include display-flex(row, center, center);
 
-      }
-      
-    }
+	@include screenSize("medium") {
+		height: 6rem;
+	}
 
-		.nav-btns{
+	.nav-wrapper {
+		width: 148rem;
+		@include display-flex(row, center, space-between);
+
+		@include screenSize("xxlarge") {
+			width: 120rem;
+		}
+
+		.nav-logo {
+			@include screenSize("xxlarge") {
+				margin-left: 1rem;
+
+			}
+
+		}
+
+		.nav-btns {
 			@include display-flex(row, center, center);
 		}
 
-    .nav-btn {
-      height: 4rem;
-      color: white;
-      border: none;
-      margin-left: 2rem;
-      padding: 0 0.5rem;
-      font-size: 1rem;
+		.nav-btn {
+			height: 4rem;
+			color: white;
+			border: none;
+			margin-left: 2rem;
+			padding: 0 0.5rem;
+			font-size: 1rem;
 			cursor: pointer;
 
-      @include display-flex(column, center, center);
+			@include display-flex(column, center, center);
 
 
-      @include screenSize("xxlarge"){
-        margin-right: 1rem;
-      }
-      @include screenSize("medium") {
-        padding:0 0.1rem;
-      }
-    }
-  }
+			@include screenSize("xxlarge") {
+				margin-right: 1rem;
+			}
+
+			@include screenSize("medium") {
+				padding: 0 0.1rem;
+			}
+		}
+	}
+}
+
+
+.header__menu {
+	position: relative;
+
+
+	&__button {
+
+		cursor: pointer;
+
+	}
+
+	&__items {
+		width: 10rem;
+		background-color: $navbar;
+		position: absolute;
+		right: 0;
+		padding: 1rem;
+		font-size: 1.2rem;
+		color: gold;
+
+	}
+
+	&__item {
+		padding: 0.5rem 0rem;
+		
+	}
 }
