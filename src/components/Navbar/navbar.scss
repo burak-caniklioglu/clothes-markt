@@ -18,9 +18,10 @@
     @include screenSize("xxlarge") {
       width: 120rem;
     }
-    .logo {
+    .nav-logo {
       @include screenSize("xxlarge") {
         margin-left: 1rem;
+
       }
       
     }
