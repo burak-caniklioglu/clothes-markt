@@ -4,12 +4,23 @@ import { Link } from 'react-router-dom';
 import Favorite from '../../constants/icons/favorite';
 import Cart from '../../constants/icons/cart';
 import World from '../../constants/icons/world';
-import Theme from '../../constants/icons/moon';
+import Moon from '../../constants/icons/moon';
+import Sun from '../../constants/icons/sun';
 import useWindowSize from '../../hooks/useWindowSize';
 import Logo from '../../constants/icons/logo';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeMode } from '../../features/themeSlice';
 
 function Navbar() {
   const [width] = useWindowSize();
+  const theme = useSelector((state) => state);
+  const { darkMode } = theme;
+  console.log(darkMode);
+  const dispatch = useDispatch();
+
+  const handleChangeMode = () => {
+    dispatch(changeMode());
+  };
 
   return (
     <div className="nav">
@@ -43,8 +54,8 @@ function Navbar() {
             {width > 768 && <div>Language</div>}
           </div>
           <div className="nav-btn world">
-            <div>
-              <Theme />
+            <div onClick={() => handleChangeMode()}>
+              {darkMode ? <Sun /> : <Moon />}
             </div>
             {width > 768 && <div>Theme</div>}
           </div>

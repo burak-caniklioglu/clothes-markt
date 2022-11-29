@@ -16,6 +16,8 @@ function ProductItem({ product }) {
   const { brand, name, price, image } = product;
   const favorites = useSelector((state) => state.favorites);
   const { favoriteItems } = favorites;
+  const theme = useSelector((state) => state);
+  const { darkMode } = theme;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,12 +35,12 @@ function ProductItem({ product }) {
   };
 
   return (
-    <div className="card__item" role="none">
+    <div className="card__item" style={{backgroundColor: darkMode && '#424227'}} role="none">
       <img src={image} alt="item-img" />
       <div className="product-btns">
         <div className="favorite-btn">
-          {favoriteItems?.length >= 0 && (
-            favoriteItems?.find((item) => product?.slug === item?.slug) ? (
+          {favoriteItems?.length >= 0 &&
+            (favoriteItems?.find((item) => product?.slug === item?.slug) ? (
               <div onClick={() => handleRemoveFromfavorites(product)}>
                 <Favorite />
               </div>
@@ -46,8 +48,7 @@ function ProductItem({ product }) {
               <div onClick={() => handleAddToFavorites(product)}>
                 <FavoritePlus />
               </div>
-            )
-          ) }
+            ))}
         </div>
         <div className="cart-btn" onClick={() => handleAddToCart(product)}>
           <Cart />
@@ -55,8 +56,8 @@ function ProductItem({ product }) {
       </div>
       <div className="card__item-content">
         <div className="card__item-info">
-          <p className="card__item-info-brand">{name}</p>
-          <p className="card__item-info-color">
+          <p className="card__item-info-brand" style={{color: darkMode && '#211'}} >{name}</p>
+          <p className="card__item-info-color" style={{color: darkMode && '#211'}}>
             <b>Brand: </b>
             {brand}
           </p>
