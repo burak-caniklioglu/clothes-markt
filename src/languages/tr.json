@@ -3,6 +3,7 @@
 	"navbar.cart": "Sepetiniz",
 	"navbar.language": "Dil",
 	"navbar.theme": "Mod",
+	"cart.empty": "Sepetiniz Boş.",
 	"cart.product": "Ürün",
 	"cart.quantity": "Adet",
 	"cart.favorite": "Favorilere Ekle",

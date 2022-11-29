@@ -3,6 +3,7 @@
 	"navbar.cart": "Shopping Cart",
 	"navbar.language": "Language",
 	"navbar.theme": "Theme",
+	"cart.empty": "Cart is empty.",
 	"cart.product": "Product",
 	"cart.quantity": "Quantity",
 	"cart.favorite": "Add to Favorites",
