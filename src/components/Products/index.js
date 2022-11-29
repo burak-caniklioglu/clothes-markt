@@ -85,11 +85,13 @@ function Products() {
           <button className="searchButton" onClick={(e) => handleSubmit(e)}>
             search
           </button>
+          {/* Inputa değer yazarak apiye her dokunuşta istek gönderilmemesi için butona onClick verildi Böylelikle api'ye 1 istek gönderiliyormuş gibi düşünüldü. Fazladan istek atıp serverı yorma maliyetinden kaçınıldı  */}
         </form>
       </div>
 
       <article className="products-container">
-        {!search && backSearch 
+        {/*  Yukarıdaki sebeple tüm ürünler inputa tekrar tıklanıldığında geri geliyor.  */}
+        {!search && backSearch
           ? filteredProducts.map((product) => (
             <Product key={product.id} product={product} />
           ))
