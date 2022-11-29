@@ -138,31 +138,36 @@ function Cart() {
                       </td>
                     </tr>
                   ))}
-                  <Modal isVisible={showModal} onClose={setShowModal}>
-                    <div className="modal-remove">
-                      <div className="modal-remove-question">
-                        Will the product be removed from the cart?
-                      </div>
-                      <div className="modal-remove-btns">
+                </tbody>
+                <Modal isVisible={showModal} onClose={() => setShowModal()}>
+                  <div className="modal-remove">
+                    <div className="modal-remove-question">
+                      Will the product be removed from the cart?
+                    </div>
+                    <div className="modal-remove-btns">
+                      <button
+                        className="modal-remove-btn"
+                        type="text"
+                        onClick={() => handleRemoveFromCart(showModal)}
+                      >
+                        Yes, I am sure
+                      </button>
+                      {favoriteItems?.length >= 0 &&
+                        !favoriteItems?.find(
+                          (product) => product?.slug === showModal?.slug,
+                        ) && (
                         <button
-                          className="modal-remove-btn"
-                          type="text"
-                          onClick={() => handleRemoveFromCart(showModal)}
-                        >
-                          Yes, I am sure
-                        </button>
-                        <button
-                          className="modal-remove-btn"
+                          className="modal-remove-btn option"
                           onClick={() =>
                             handleRemoveFromCartAddFavorites(showModal)
                           }
                         >
-                          Remove and Add to Favorites
+                            Remove and Add to Favorites
                         </button>
-                      </div>
+                      )}
                     </div>
-                  </Modal>
-                </tbody>
+                  </div>
+                </Modal>
               </table>
             </div>
           ) : (

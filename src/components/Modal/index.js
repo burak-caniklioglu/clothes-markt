@@ -5,7 +5,7 @@ import propTypes from 'prop-types';
 function Modal({ onClose, isVisible, children }) {
   if (!isVisible) return null;
   const handleClose = (e) => {
-    if (e.target.id === 'wrapper') onClose(false);
+    if (e.target.id === 'wrapper') onClose();
   };
   return (
     <div className="modal-section" id="wrapper" onClick={handleClose}>

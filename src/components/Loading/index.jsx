@@ -10,7 +10,7 @@ function Loading() {
         height="100px"
         viewBox="0 0 100 100"
       >
-        <rect y="25" width="10" height="50" rx="4" ry="4" fill="red">
+        <rect y="25" width="10" height="50" rx="4" ry="4" fill="gold">
           <animate
             attributeName="x"
             values="10;100"
@@ -32,7 +32,7 @@ function Loading() {
             repeatCount="indefinite"
           />
         </rect>
-        <rect y="25" width="10" height="50" rx="4" ry="4" fill="red">
+        <rect y="25" width="10" height="50" rx="4" ry="4" fill="gold">
           <animate
             attributeName="x"
             values="10;100"
@@ -57,7 +57,7 @@ function Loading() {
             repeatCount="indefinite"
           />
         </rect>
-        <rect y="25" width="10" height="50" rx="4" ry="4" fill="red">
+        <rect y="25" width="10" height="50" rx="4" ry="4" fill="gold">
           <animate
             attributeName="x"
             values="10;100"
