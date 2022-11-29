@@ -11,20 +11,23 @@ import Logo from '../../constants/icons/logo';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeMode } from '../../features/themeSlice';
 import { Menu } from '@headlessui/react';
+import i18n from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 function Navbar() {
   const [width] = useWindowSize();
   const theme = useSelector((state) => state);
   const { darkMode } = theme;
-  console.log(darkMode);
   const dispatch = useDispatch();
 
   const handleChangeMode = () => {
     dispatch(changeMode());
   };
 
+  const { t } = useTranslation();
+
   return (
-    <navbar className="nav">
+    <nav className="nav">
       <div className="nav-wrapper">
         <div className="nav-logo">
           <Link to="/">
@@ -37,7 +40,7 @@ function Navbar() {
               <div>
                 <Favorite />
               </div>
-              {width > 768 && <div>Favorites</div>}
+              {width > 768 && <div>{t('navbar.favorite')}</div>}
             </div>
           </Link>
           <Link to="/cart">
@@ -45,7 +48,7 @@ function Navbar() {
               <div>
                 <Cart />
               </div>
-              {width > 768 && <div>Shopping Cart</div>}
+              {width > 768 && <div>{t('navbar.cart')}</div>}
             </div>
           </Link>
           <div className="nav-btn world">
@@ -54,26 +57,37 @@ function Navbar() {
                 <World />
               </Menu.Button>
               <Menu.Items className="header__menu__items">
-                <Menu.Item as="div" className="header__menu__item">
+                <Menu.Item
+                  as="div"
+                  className="header__menu__item"
+                  onClick={(e) => i18n.changeLanguage(e.target.innerHTML)}
+                >
                   EN
                 </Menu.Item>
-                <Menu.Item as="div" className="header__menu__item">
+                <Menu.Item
+                  as="div"
+                  className="header__menu__item"
+                  onClick={(e) => {
+                    i18n.changeLanguage(e.target.innerHTML);
+                    
+                  }}
+                >
                   TR
                 </Menu.Item>
               </Menu.Items>
             </Menu>
 
-            {width > 768 && <div>Language </div>}
+            {width > 768 && <div>{t('navbar.language')} {i18n.language} </div>}
           </div>
           <div className="nav-btn world">
             <div onClick={() => handleChangeMode()}>
               {darkMode ? <Sun /> : <Moon />}
             </div>
-            {width > 768 && <div>Theme</div>}
+            {width > 768 && <div>{t('navbar.theme')}</div>}
           </div>
         </div>
       </div>
-    </navbar>
+    </nav>
   );
 }
 

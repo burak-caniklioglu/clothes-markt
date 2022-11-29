@@ -1,0 +1,18 @@
+{
+	"navbar.favorite": "Favorites",
+	"navbar.cart": "Shopping Cart",
+	"navbar.language": "Language",
+	"navbar.theme": "Theme",
+	"cart.empty": "Cart is empty.",
+	"cart.product": "Product",
+	"cart.quantity": "Quantity",
+	"cart.favorite": "Add to Favorites",
+	"cart.price": "Quantity Price",
+	"cart.subtotal": "Product Subtotal",
+	"cart.remove": "Remove from Cart",
+	"cart.totalProducts": "Total Products",
+	"cart.nextButton": "Next",
+	"cart.question": "Will the product be removed from the cart?",
+	"cart.yesButton": "Yes, sure",
+	"cart.addFavButton": "Remove and Add to Favorites"
+}
