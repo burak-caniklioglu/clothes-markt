@@ -10,6 +10,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 import Logo from '../../constants/icons/logo';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeMode } from '../../features/themeSlice';
+import { Menu } from '@headlessui/react';
 
 function Navbar() {
   const [width] = useWindowSize();
@@ -23,7 +24,7 @@ function Navbar() {
   };
 
   return (
-    <div className="nav">
+    <navbar className="nav">
       <div className="nav-wrapper">
         <div className="nav-logo">
           <Link to="/">
@@ -48,10 +49,21 @@ function Navbar() {
             </div>
           </Link>
           <div className="nav-btn world">
-            <div>
-              <World />
-            </div>
-            {width > 768 && <div>Language</div>}
+            <Menu as="div" className="header__menu">
+              <Menu.Button as="div" className="header__menu__button">
+                <World />
+              </Menu.Button>
+              <Menu.Items className="header__menu__items">
+                <Menu.Item as="div" className="header__menu__item">
+                  EN
+                </Menu.Item>
+                <Menu.Item as="div" className="header__menu__item">
+                  TR
+                </Menu.Item>
+              </Menu.Items>
+            </Menu>
+
+            {width > 768 && <div>Language </div>}
           </div>
           <div className="nav-btn world">
             <div onClick={() => handleChangeMode()}>
@@ -61,7 +73,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </div>
+    </navbar>
   );
 }
 
