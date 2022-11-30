@@ -5,6 +5,8 @@ function NotFound() {
   return (
     <>
       <Navbar />
+
+      <div>Not Found Page</div>
     </>
   );
 }
