@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './products.scss';
 import data from '../../utils/data';
 import Product from '../ProductItem';
+import { useTranslation } from 'react-i18next';
 
 function Products() {
   const { products } = data;
@@ -9,6 +10,7 @@ function Products() {
   const [search, setSearch] = useState('');
   const [backSearch, setBackSearch] = useState('');
   const [sort, setSort] = useState('Choose');
+  const { t } = useTranslation();
 
   const updateSort = (sort) => {
     setSort(sort);
@@ -65,10 +67,10 @@ function Products() {
             id="sort"
             onChange={(e) => updateSort(e.target.value)}
           >
-            <option value="Choose">Choose</option>
-            <option value="Best-Selling">Best Selling Products</option>
-            <option value="Low-to-High">Price: Low to High</option>
-            <option value="High-to-Low">Price: High to Low</option>
+            <option value="Choose">{t('searchbar.choose')}</option>
+            <option value="Best-Selling">{t('searchbar.best')}</option>
+            <option value="Low-to-High">{t('searchbar.low')}</option>
+            <option value="High-to-Low">{t('searchbar.high')}</option>
           </select>
         </div>
 
@@ -83,7 +85,7 @@ function Products() {
             onClick={() => setBackSearch('')}
           />
           <button className="searchButton" onClick={(e) => handleSubmit(e)}>
-            search
+            {t('searchbar.search')}
           </button>
           {/* Inputa değer yazarak apiye her dokunuşta istek gönderilmemesi için butona onClick verildi Böylelikle api'ye 1 istek gönderiliyormuş gibi düşünüldü. Fazladan istek atıp serverı yorma maliyetinden kaçınıldı  */}
         </form>

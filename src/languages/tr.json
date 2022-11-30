@@ -14,5 +14,11 @@
 	"cart.nextButton": "Devam Et",
 	"cart.question": "Ürünü sepetten kaldırmak istediğinize emin misiniz?",
 	"cart.yesButton": "Evet, eminim",
-	"cart.addFavButton": "Kaldır ve Favorilere Ekle"
+	"cart.addFavButton": "Kaldır ve Favorilere Ekle",
+	"product.brand": "Marka",
+	"searchbar.search": "Ara",
+	"searchbar.best": "En çok Satanlar ",
+	"searchbar.low": "Fiyat: Azalandan Artana",
+	"searchbar.high": "Fiyat: Artandan Azalana",
+	"searchbar.choose": "Seçiniz"
 }

@@ -11,6 +11,7 @@ import {
 } from '../../features/favoriteSlice';
 import { useNavigate } from 'react-router-dom';
 import Favorite from '../../constants/icons/favorite';
+import { useTranslation } from 'react-i18next';
 
 function ProductItem({ product }) {
   const { brand, name, price, image } = product;
@@ -20,6 +21,7 @@ function ProductItem({ product }) {
   const { darkMode } = theme;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -35,7 +37,11 @@ function ProductItem({ product }) {
   };
 
   return (
-    <div className="card__item" style={{backgroundColor: darkMode && '#424227'}} role="none">
+    <div
+      className="card__item"
+      style={{ backgroundColor: darkMode && '#424227' }}
+      role="none"
+    >
       <img src={image} alt="item-img" />
       <div className="product-btns">
         <div className="favorite-btn">
@@ -56,9 +62,17 @@ function ProductItem({ product }) {
       </div>
       <div className="card__item-content">
         <div className="card__item-info">
-          <p className="card__item-info-brand" style={{color: darkMode && '#211'}} >{name}</p>
-          <p className="card__item-info-color" style={{color: darkMode && '#211'}}>
-            <b>Brand: </b>
+          <p
+            className="card__item-info-brand"
+            style={{ color: darkMode && '#211' }}
+          >
+            {name}
+          </p>
+          <p
+            className="card__item-info-color"
+            style={{ color: darkMode && '#211' }}
+          >
+            <b>{t('product.brand')}: </b>
             {brand}
           </p>
         </div>

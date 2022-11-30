@@ -14,5 +14,13 @@
 	"cart.nextButton": "Next",
 	"cart.question": "Will the product be removed from the cart?",
 	"cart.yesButton": "Yes, sure",
-	"cart.addFavButton": "Remove and Add to Favorites"
+	"cart.addFavButton": "Remove and Add to Favorites",
+	"product.brand": "Brand",
+
+	"searchbar.search": "Search",
+	"searchbar.best": "Best Selling",
+	"searchbar.low": "Price: Low to High",
+	"searchbar.high": "Price: High to Low",
+	"searchbar.choose": "Choose"
+
 }
