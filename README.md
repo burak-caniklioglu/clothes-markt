@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+<div align='center'>
+    <div>
+        <img src='./src/constants/images/coino.png' alt='coino-logo' width='500px' />
+    </div>
+    <br/>
+    <br/>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Recruitment project given by Coino Company
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+You can access the live demo from the link here: [ <b> Live Demo</b> ](https://clothesmarkt.netlify.app/) 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Content
 
-### `npm test`
+- [About](#about)
+- [Used Packages And Modules](#used-packages-and-modules)
+- [Installation](#installation)
+- [Previews](#previews)
+- [App Performance](#app-performance)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+# About
+- Clothes-Markt Project is an e-commerce platform that offers its users features such as adding products to the cart, removing them from the cart and adding to their favourites, and removing them from their favourites.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Used Packages And Modules
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React JS
+- React-redux
+- Redux-Toolkit
+- Js-cookie
+- Eslint
+- SASS
+- Prettier
+- @headlessui/react
+- i18next
+- Netlify
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Installation
 
-## Learn More
+- First, clone the project:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+git clone https://github.com/burak-caniklioglu/clothes-markt.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Then, start the project on localhost:
 
-### Code Splitting
+```
+# install dependencies with npm
+npm install
+# or install dependencies with yarn
+yarn install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# serve at localhost:3000
+npm start or yarn start
+```
 
-### Analyzing the Bundle Size
+# Previews
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<center>
 
-### Making a Progressive Web App
+## Web - Main Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src='previews/main-page.png' />
 
-### Advanced Configuration
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Web - Favorite Page
 
-### Deployment
+<img src='previews/favorite-page.png' />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<br>
+<br>
 
-### `npm run build` fails to minify
+## Web - Cart Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img src='previews/cart-page.PNG' />
+
+<br>
+<br>
+
+## Mobile
+
+<p align="center">
+    <img src="previews/main-mobile.png" alt="mobile-prew" width="220"/>
+    <img src="previews/favorite-mobile.png" alt="mobile-prew" width="220"/>
+    <img src="previews/cart-mobile.png" alt="mobile-prew" width="220"/>
+</p>
+</center>
+
+# App Performance
+
+## Web
+
+<p align="center">
+
+  <img src="previews/desktop-perf.PNG" alt="mobile-prew" width="660"/>
+</p>
+
+## Mobile
+
+<p align="center">
+
+  <img src="previews/mobile-perf.PNG" alt="mobile-prew" width="660"/>
+</p>

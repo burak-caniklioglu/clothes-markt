@@ -1,9 +1,9 @@
-import { nanoid } from 'nanoid';
+
 
 const data = {
   products: [
     {
-      id: nanoid(),
+      
       name: 'Free Shirt',
       slug: 'free-shirt',
       category: 'Shirts',
@@ -16,7 +16,7 @@ const data = {
       description: 'A popular shirt',
     },
     {
-      id: nanoid(),
+      
       name: 'Fit Shirt',
       slug: 'fit-shirt',
       category: 'Shirts',
@@ -29,7 +29,7 @@ const data = {
       description: 'A popular shirt',
     },
     {
-      id: nanoid(),
+      
       name: 'Slim Shirt',
       slug: 'slim-shirt',
       category: 'Shirts',
@@ -42,7 +42,7 @@ const data = {
       description: 'A popular shirt',
     },
     {
-      id: nanoid(),
+      
       name: 'Golf Pants',
       slug: 'golf-pants',
       category: 'Pants',
@@ -55,7 +55,7 @@ const data = {
       description: 'Smart looking pants',
     },
     {
-      id: nanoid(),
+      
       name: 'Fit Pants',
       slug: 'fit-pants',
       category: 'Pants',
@@ -68,7 +68,7 @@ const data = {
       description: 'A popular pants',
     },
     {
-      id: nanoid(),
+      
       name: 'Classic Pants',
       slug: 'classic-pants',
       category: 'Pants',
