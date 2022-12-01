@@ -72,14 +72,14 @@ npm start or yarn start
 
 ## Web - Main Page
 
-<img src='previews/main-page.png' />
+<img src='previews/main-page.PNG' />
 
 <br>
 <br>
 
 ## Web - Favorite Page
 
-<img src='previews/favorite-page.png' />
+<img src='previews/favorite-page.PNG' />
 
 <br>
 <br>
